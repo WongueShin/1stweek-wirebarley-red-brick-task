@@ -2,6 +2,7 @@ import CurrencyDropDown from './CurrencyDropDown';
 import ExChangeRateDisPlay from './ExchangeRateDisplay';
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 
 
 const Inputbox = styled.input`
@@ -26,6 +27,10 @@ const RedBrick = (props) => {
   const quotesdata =  [1, jsonData.quotes["USDCAD"],jsonData.quotes["USDKRW"], jsonData.quotes["USDHKD"], jsonData.quotes["USDJPY"], jsonData.quotes["USDCNY"]];
   const time = new Date(parseInt(jsonData.timestamp) * 1000);
   return (
+    <>
+    <Link to ='/'>
+        <button>와이어바알리</button>
+      </Link>
     <Container>
       <Inputbox
         type="text"
@@ -39,6 +44,7 @@ const RedBrick = (props) => {
       </DropDown>
       <ExChangeRateDisPlay base = {baseCurrency} amount={amount} time = {time} quotesdata = {quotesdata}/>
     </Container>
+    </>
   );
 };
 
@@ -56,7 +62,7 @@ border: solid 3px rgb(1,1,1);
 const DropDown = styled.div`
 position: absolute;
 left: 14rem;
-top: 5.2rem
+top: 7.2rem
 `
 
 export default RedBrick;

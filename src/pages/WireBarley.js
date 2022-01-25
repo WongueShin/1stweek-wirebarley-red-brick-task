@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div``;
@@ -60,7 +61,12 @@ const WireBarley = (props) => {
   }, [props.data]);
 
   return (
+    <>
+    <Link to ='/RedBrick'>
+        <button>레드브릭</button>
+      </Link>
     <Container>
+      
       <h1>환율 계산</h1>
       <p>송금국가: 미국(USD)</p>
       <p>
@@ -112,6 +118,7 @@ const WireBarley = (props) => {
         {selected.code} 입니다.
       </p>
     </Container>
+    </>
   );
 };
 
